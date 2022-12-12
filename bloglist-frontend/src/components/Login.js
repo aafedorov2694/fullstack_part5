@@ -8,7 +8,8 @@ const Login = (props) => {
 		setUsername,
 		setPassword,
 		setUser,
-		setNotification
+		setNotification,
+		viewLoginForm
 	} = props
 
 	const onChangeUsername = (event) => {
@@ -46,7 +47,7 @@ const Login = (props) => {
 	}
 	
 	return(
-		<div>
+		<div style ={{ 'display': '' }}>
 			<h2>Login</h2>
 			<form onSubmit={onSubmit}>
 				<p>Username</p>
@@ -55,6 +56,7 @@ const Login = (props) => {
 				<input type='password' value={password} onChange={onChangePassword}></input>
 				<button type="submit">Login</button>
 			</form>
+			<button onClick={viewLoginForm}>cancel</button>
 		</div>
 	)
 }

@@ -1,8 +1,8 @@
 module.exports = {
 	'env': {
 		'browser': true,
-		'commonjs': true,
-		'es2021': true
+		'es2021': true,
+		'jest/globals': true 
 	},
 	'extends': [
 		'eslint:recommended',
@@ -11,7 +11,7 @@ module.exports = {
 	'overrides': [
 	],
 	'parserOptions': {
-		'ecmaVersion': 'latest',
+		'ecmaVersion': 2018,
 		'sourceType': 'module',
 		'ecmaFeatures': {
 			'jsx': true
@@ -23,7 +23,7 @@ module.exports = {
 	'rules': {
 		'indent': [
 			'error',
-			'tab'
+			2
 		],
 		'linebreak-style': [
 			'error',
@@ -45,8 +45,16 @@ module.exports = {
 		'object-curly-spacing': [
 			'error', 'always'
 		],
+		'react/prop-types': 0,
+      	'react/react-in-jsx-scope': 'off'
 		
+	},
+	'settings': {
+		'react': {
+			'version': 'detect'
+		}
 	}
+	
 		
 
 	

@@ -29,6 +29,31 @@ const loggingIn = (credentials) => {
 	return request.then(response => response)
 }
 
+const updatingBlog = (blog, likes) => {
+	const token = JSON.parse(window.localStorage.getItem('blogUser')).token
+	console.log('params: ', likes)
+	const config = {
+		headers: { 'Authorization': `Bearer ${token}` },
+		params: { 'likes' : likes }
+		
+	} 
+	console.log('blog in service: ', token)
+	return axios.put( `${baseUrl}/${blog.id}`, blog, config)
+		
+	
+}
 
 
-export default { getAll, loggingIn, createBlog }
+
+const deleteBlog = (blog) => {
+	const token = JSON.parse(window.localStorage.getItem('blogUser')).token
+	const config = {
+		headers: { Authorization: `Bearer ${token}` },
+	}
+	return axios.delete(`${baseUrl}/${blog.id}`, config)
+		
+	
+}
+
+
+export default { getAll, loggingIn, createBlog, updatingBlog, deleteBlog }
